@@ -123,20 +123,30 @@
                     搜索
                 </button>
             </form>
-
             <!-- 用户菜单 -->
-            <div class="dropdown ms-3">
-                <button class="btn btn-outline-primary dropdown-toggle"
-                        type="button"
-                        id="dropdownUser"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    ${sessionScope.user.username} (${sessionScope.user.role})
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="dropdownUser">
-                    <li><a class="dropdown-item" href="logout">退出登录</a></li>
-                </ul>
+            <div class="ms-3">
+                <c:choose>
+                    <c:when test="${not empty sessionScope.user}">
+                        <!-- 已登录状态 -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-primary dropdown-toggle"
+                                    type="button"
+                                    id="dropdownUser"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    ${sessionScope.user.username} (${sessionScope.user.role})
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end"
+                                aria-labelledby="dropdownUser">
+                                <li><a class="dropdown-item" href="logout">退出登录</a></li>
+                            </ul>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <!-- 未登录状态 -->
+                        <a href="/jsp/user/login.jsp" class="btn btn-outline-primary">登录/注册</a>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>

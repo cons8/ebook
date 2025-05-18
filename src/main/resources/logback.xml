@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 定义一个名为 STDOUT 的输出目的地，使用控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 配置编码器，用于格式化日志输出 -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- 定义日志输出的格式，包含日期时间、线程名、日志级别、日志记录器名称和日志消息 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [$thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- 根日志记录器，设置全局日志级别为 debug -->
+    <root level="debug">
+        <!-- 引用之前定义的 STDOUT 输出目的地 -->
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
