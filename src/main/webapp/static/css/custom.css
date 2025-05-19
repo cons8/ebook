@@ -1,0 +1,12 @@
+/* 全局字体设置 */
+body {
+    font-family: "SimSun", "宋体", serif; /* 宋体优先 */
+}
+
+
+.search-btn {
+    height: 38px;
+    min-width: 70px;  /* 确保容器最小宽度 */
+    padding: 0.375rem 1rem;
+    border-radius: 0 4px 4px 0;
+}

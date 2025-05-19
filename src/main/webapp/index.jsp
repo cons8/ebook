@@ -8,13 +8,10 @@
     <title>Ebook电子书在线阅读系统</title>
     <!-- Bootstrap CSS -->
     <link href="<c:url value="/static/css/bootstrap.min.css"/>" rel="stylesheet">
-
+    <link href="<c:url value="/static/css/custom.css"/>" rel="stylesheet">
     <!-- 自定义样式 -->
     <style>
-        /* 全局字体设置 */
-        body {
-            font-family: "SimSun", "宋体", serif; /* 宋体优先 */
-        }
+
 
         /* 自定义导航栏样式 */
         .navbar-custom {
@@ -49,14 +46,6 @@
             border-radius: 4px 0 0 4px;
         }
 
-        .search-btn {
-            height: 38px;
-            min-width: 70px;  /* 确保容器最小宽度 */
-            padding: 0.375rem 1rem;
-            border-radius: 0 4px 4px 0;
-        }
-
-        /* 保持原有书籍卡片样式 */
         .book-card {
             transition: transform 0.3s;
             height: 100%;
@@ -162,17 +151,17 @@
             </div>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <!-- 书籍卡片循环 -->
-                <c:forEach var="book" items="${books}">
+                <c:forEach var="book" items="${books.items}">
                     <div class="col">
                         <div class="card book-card h-100">
                             <div class="card-body">
                                 <h5 class="card-title">${book.title}</h5>
                                 <p class="card-text text-muted">作者：${book.author}</p>
-                                <p class="card-text">${book.description.substring(0, 50)}...</p>
+                                <p class="card-text">${book.description.substring(0, 10)}...</p>
                             </div>
                             <div class="card-footer bg-transparent">
-                                <a href="readBook?id=${book.id}"
-                                   class="btn btn-sm btn-outline-primary">开始阅读</a>
+                                <a href="book?id=${book.bookId}"
+                                   class="btn btn-sm btn-outline-primary">看看</a>
                             </div>
                         </div>
                     </div>
@@ -203,5 +192,6 @@
 
 <!-- Bootstrap JS -->
 <script src="<c:url value="/static/js/bootstrap.bundle.min.js"/>"></script>
+<script></script>
 </body>
 </html>
